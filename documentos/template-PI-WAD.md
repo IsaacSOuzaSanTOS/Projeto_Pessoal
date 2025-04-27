@@ -39,9 +39,9 @@ Por fim, o ReadLine foi desenvolvido para aqueles que buscam uma solução simpl
 
 | **User Stories** | **Pensamento** | **Critérios de Aceitação** |
 |------------------|----------------|----------------------------|
-| **US01** | Como Mariana, eu quero criar e categorizar tarefas de forma rápida e intuitiva, para que eu possa organizar meu dia sem perder tempo com configurações complicadas. | - O app permite criar uma nova tarefa com um clique ou toque. <br> - Eu posso adicionar categorias (como "Pessoal" ou "Profissional") a cada tarefa. <br> - O processo de criação é rápido. |
+| **US01** | Como Mariana, eu quero criar e categorizar tarefas de forma rápida e intuitiva, para que eu possa organizar meu dia sem perder tempo com configurações complicadas. | - A plataforma permite criar uma nova tarefa com um clique ou toque. <br> - Eu posso adicionar categorias (como "Pessoal" ou "Profissional") a cada tarefa. <br> - O processo de criação é rápido. |
 | **US02** | Como Mariana, eu quero ver as tarefas concluídas de forma destacada, para que eu possa sentir que estou avançando e não me sobrecarregar. | - Tarefas concluídas são marcadas como "Concluídas" com um ícone visível. <br> - Tarefas concluídas têm uma cor diferente (como cinza ou tonalidade suave de vermelho). <br> - Eu vejo o progresso em % (ex: "80% das tarefas concluídas hoje"). |
-| **US03** | Como Mariana, eu quero uma interface limpa e intuitiva, para que eu possa usar o app de forma rápida e sem frustrações, focando no que realmente importa. | - A interface é minimalista e sem sobrecarga de informações. <br> - Funções principais estão acessíveis em poucos toques. <br> - O design é responsivo e funciona bem no celular. <br> - As cores e fontes são agradáveis, com destaque para o vermelho. |
+| **US03** | Como Mariana, eu quero uma interface limpa e intuitiva, para que eu possa usar A plataforma de forma rápida e sem frustrações, focando no que realmente importa. | - A interface é minimalista e sem sobrecarga de informações. <br> - Funções principais estão acessíveis em poucos toques. <br> - O design é responsivo e funciona bem no celular. <br> - As cores e fontes são agradáveis, com destaque para o vermelho. |
 
 ####  2.2.1 Invest
 
