@@ -1,45 +1,85 @@
-# Projeto Individual Integrado - Módulo 2025-1B
+# Inteli - Instituto de Tecnologia e Liderança 
 
-### Antes de começar: ###
+<p align="center">
+<a href= "https://www.inteli.edu.br/"><img src="/assets/inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
+</p>
 
-Se você for das turmas 15, 17 ou 19, acesse este enunciado aqui para realizar as ponderadas de Computação: [https://github.com/InteliContent/ponderadaM2-B/blob/main/README.md](https://github.com/InteliContent/ponderadaM2-B/blob/main/README.md)
+# RedLine
 
----
+## RedLine
 
-Neste projeto, você será responsável por desenvolver um sistema web completo, com banco de dados, backend e frontend integrados. O objetivo é aplicar os conceitos do módulo e construir um projeto que possa ser incluído no seu portfólio profissional. Quem sabe você poderá apresentá-lo em um processo seletivo para estágio! 🚀
+## Integrantes: 
+- <a href="https://www.linkedin.com/in/isaac-souza-santos/">Isaac Souza Santos</a>
 
-Você deve escolher um entre os tipos de sistema abaixo para desenvolver:
-- Opção 1: Gerenciador de tarefas para organização e produtividade.
-- Opção 2: Sistema de reserva de salas para agendamentos. 
-- Opção 3: Plataforma de eventos com gerenciamento de inscrições. 
 
-Seu projeto será desenvolvido progressivamente ao longo das semanas, por meio de entregas parciais (autoestudos ponderados 1, 2, 3 e 4), garantindo que cada etapa do sistema seja construída de forma estruturada.
+## Professores:
 
-## Requisitos:
-Para que o sistema seja considerado completo, ele deverá incluir:
+- <a href="https://www.linkedin.com/in/bruna-mayer/">Bruna Mayer</a>
+- <a href="https://www.linkedin.com/in/cristiano-benites-ph-d-687647a8/">Cristiano Benites</a> 
 
- ✅ Banco de Dados: Estrutura relacional ou não-relacional para armazenamento das informações.
+## 📝 Descrição
 
- ✅ Backend: Implementação da lógica de negócio e conexão com o banco de dados.
+_Descreva seu projeto (até 600 palavras)_
 
- ✅ Frontend: Interface intuitiva para interação do usuário.
+## 📝 Link de demonstração
 
- ✅ Integração: Comunicação entre frontend e backend utilizando API.
+_Coloque aqui o link para seu projeto publicado e link para vídeo de demonstração_
 
- ✅ Documentação e código no GitHub: O código-fonte deve ser documentado e armazenado em um repositório público no seu perfil do GitHub.
+## 📁 Estrutura de pastas
 
- ## Entregas Parciais
+Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
 
-[Semana 01 (UX Parte 1): Personas e US](UX_Ponderada1.md)  
+- <b>assets</b>: aqui estão os arquivos relacionados a elementos não-estruturados deste repositório, como imagens.
 
-[Semana 02 (COMP Parte 1): Base do Projeto](Comp_Ponderada1.md)  
+- <b>document</b>: aqui estão todos os documentos do projeto, como o Web Application  Document (WAD) bem como documentos complementares, na pasta "other".
 
-[Semana 03 (UX Parte 2): Wireframes](UX_Ponderada2.md)  
+- <b>src</b>: Todo o código fonte criado para o desenvolvimento do projeto de aplicação web.
 
-[Semana 04 (COMP Parte 2): Conectando Banco de Dados e Servidor](Comp_Ponderada2.md)  
+- <b>README.md</b>: arquivo que serve como guia introdutório e explicação geral sobre o projeto e a aplicação (o mesmo arquivo que você está lendo agora).
 
-[Semana 05 (UX Parte 3): Protótipo de Alta](UX_Ponderada3.md)  
+## 💻 Configuração para desenvolvimento e execução do código
 
-[Semana 06 (COMP Parte 3): Sistema Completo com Funcionalidades e Interface](Comp_Ponderada3.md)  
+*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, bibliotecas, serviços etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o código e executar a aplicação a partir de sua máquina local.*
 
-[Semana 07 (COMP Parte 4): Demonstração e Documentação](Comp_Ponderada4.md)  
+*exemplo de instruções*
+
+Aqui encontram-se todas as instruções necessárias para a instalação de todos os programas, bibliotecas e ferramentas imprescindíveis para a configuração do ambiente de desenvolvimento.
+
+1. Baixar e instalar o node.js: [https://nodejs.org/pt-br/](https://nodejs.org/pt-br/) (versão 16.15.1 LTS)
+2. Clone o repositório em questão.
+3. No modo administrador, abra o "prompt de comando" ou o "terminal" e, após, abra a pasta "src/backend" no diretório raiz do repositório clonado e digite o segundo comando:
+
+```sh
+npm install
+```
+
+Isso instalará todas as dependências definidas no arquivo <b>package.json</b> que são necessárias para rodar o projeto. Agora o projeto já está pronto para ser modificado. Caso ainda deseje iniciar a aplicação, digite o comando abaixo no terminal:
+
+```sh
+npm start
+```
+5. Agora você pode acessar a aplicação através do link http://localhost:1234/
+6. O servidor está online.
+
+## 🗃 Histórico de lançamentos
+
+* 0.5.0 - XX/XX/2024
+    * 
+* 0.4.0 - XX/XX/2024
+    * 
+* 0.3.0 - XX/XX/2024
+    * 
+* 0.2.0 - XX/XX/2024
+    * 
+* 0.1.0 - XX/XX/2024
+    *
+
+## 📋 Licença/License
+```
+Alunos inteli (remover essa observação do readme.md após leitura e execução, junto com o link para o tutorial):
+
+1. Siga o tutorial para criação da licença: https://drive.google.com/file/d/1hXWLHUhjBkPVuGqeE2LZKozFntnJZzlx/view
+```
+
+<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Intelihub/Template_M2/">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">Inteli, Nome do integrante 1, Nome do integrante 2, Nome do integrante 3, Nome do integrante 4, Nome do integrante 5, Nome do integrante 6, Nome do integrante 7</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+
