@@ -1,18 +1,18 @@
 -- criando as tabelas --
-create table users (
+create table if not exists users (
     id serial primary key,
     name varchar(100) not null,
     email varchar(100) not null,
     password varchar(100) not null
 );
 
-create table categories (
+create table if not exists categories (
     id serial primary key,
     name varchar(100) not null,
     color varchar(100) not null
 );
 
-create table tasks (
+create table if not exists tasks (
     id serial primary key,
     title varchar(100) not null,
     description text,
@@ -23,4 +23,3 @@ create table tasks (
 );
 ----
 
--- Inserindo os dados

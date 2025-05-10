@@ -19,7 +19,13 @@
 
 ## 📝 Descrição
 
-_Descreva seu projeto (até 600 palavras)_
+O ReadLine é um gerenciador de tarefas desenvolvido para otimizar a produtividade de seus usuários, oferecendo uma forma simples e eficiente de organizar atividades. Com uma interface limpa e intuitiva, o ReadLine permite que você centralize todas as suas tarefas pessoais e profissionais, evitando a sobrecarga de informações e a complexidade de ferramentas tradicionais.
+
+O sistema é projetado para facilitar a criação e categorização de tarefas, possibilitando a organização de forma rápida, sem perder tempo com configurações complicadas. Por meio de uma API robusta, o ReadLine sincroniza e gerencia as tarefas, permitindo que você foque no que realmente importa.
+
+Além de sua funcionalidade prática, o ReadLine oferece uma experiência visual que motiva a conclusão das tarefas. Utilizando a cor vermelha, o sistema destaca o progresso das atividades, criando um ambiente de trabalho energizante. A sensação de realização ao concluir uma tarefa é um incentivo constante para aumentar a produtividade.
+
+Desenvolvido para aqueles que buscam uma solução centralizada, simples e eficaz, o ReadLine é a ferramenta ideal para alcançar seus objetivos de forma mais eficiente.
 
 ## 📝 Link de demonstração
 
@@ -27,39 +33,66 @@ _Coloque aqui o link para seu projeto publicado e link para vídeo de demonstra�
 
 ## 📁 Estrutura de pastas
 
-Dentre os arquivos e pastas presentes na raiz do projeto, definem-se:
-
-- <b>assets</b>: aqui estão os arquivos relacionados a elementos não-estruturados deste repositório, como imagens.
-
-- <b>document</b>: aqui estão todos os documentos do projeto, como o Web Application  Document (WAD) bem como documentos complementares, na pasta "other".
-
-- <b>src</b>: Todo o código fonte criado para o desenvolvimento do projeto de aplicação web.
-
-- <b>README.md</b>: arquivo que serve como guia introdutório e explicação geral sobre o projeto e a aplicação (o mesmo arquivo que você está lendo agora).
+```plaintext
+├── assets/           # Imagens auxiliares do projeto (ex: modelo do banco, persona)
+│ ├── modelo-banco.png
+│ └── persona.png
+├── document/         # Documentos do projeto, como o WAD e outros arquivos de apoio
+│ └── template-PI-WAD.md
+├── src/              # Código-fonte principal da aplicação
+│ ├── config/         # Configurações globais (ex: conexão com banco de dados)
+│ ├── controllers/    # Lógica dos controladores (camada intermediária)
+│ ├── models/         # Definição dos modelos de dados
+│ ├── routes/         # Definição das rotas da API
+│ ├── scripts/        # Scripts auxiliares, como SQL de inicialização
+│ ├── services/       # Lógica de negócio e serviços reutilizáveis
+│ ├── styles/         # Arquivos de estilo (caso haja front-end)
+│ └── tests/          # Testes automatizados
+├── .env              # Arquivo de variáveis de ambiente
+├── README.md         # Documentação principal do projeto
+├── server.js         # Arquivo que inicia o servidor da aplicação
+└── testConnection.js # Script para testar a conexão com o banco de dados
+```
 
 ## 💻 Configuração para desenvolvimento e execução do código
 
-*Acrescentar as informações necessárias sobre pré-requisitos (IDEs, bibliotecas, serviços etc.) e instalação básica do projeto, descrevendo eventuais versões utilizadas. Colocar um passo a passo de como o leitor pode baixar o código e executar a aplicação a partir de sua máquina local.*
+Siga os passos abaixo para rodar o projeto localmente na sua máquina:
 
-*exemplo de instruções*
+### ✅ Pré-requisitos
 
-Aqui encontram-se todas as instruções necessárias para a instalação de todos os programas, bibliotecas e ferramentas imprescindíveis para a configuração do ambiente de desenvolvimento.
+Antes de começar, certifique-se de ter os seguintes itens instalados:
+
+- [Node.js (versão 16.15.1 LTS)](https://nodejs.org/pt-br/)
+- Git
+
+### 📦 Instalação
 
 1. Baixar e instalar o node.js: [https://nodejs.org/pt-br/](https://nodejs.org/pt-br/) (versão 16.15.1 LTS)
-2. Clone o repositório em questão.
-3. No modo administrador, abra o "prompt de comando" ou o "terminal" e, após, abra a pasta "src/backend" no diretório raiz do repositório clonado e digite o segundo comando:
+
+2. Clone este repositório:
+
+```sh
+git clone https://github.com/IsaacSOuzaSanTOS/Projeto_Pessoal
+
+```
+
+3. Acesse a pasta do projeto
+
+```sh
+cd nome-do-repositorio
+```
+
+4. instale as dependências do projeto
 
 ```sh
 npm install
 ```
 
-Isso instalará todas as dependências definidas no arquivo <b>package.json</b> que são necessárias para rodar o projeto. Agora o projeto já está pronto para ser modificado. Caso ainda deseje iniciar a aplicação, digite o comando abaixo no terminal:
+5. Execute o projeto ainda no terminal
 
 ```sh
-npm start
+node .\server.js
 ```
-5. Agora você pode acessar a aplicação através do link http://localhost:1234/
-6. O servidor está online.
 
 ## 🗃 Histórico de lançamentos
 

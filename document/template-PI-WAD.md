@@ -20,7 +20,7 @@
 
 <br>
 
-## <a name="c1"></a>1. Introdução (Semana 01)
+## <a name="c1"></a>1. Introdução
 
 O ReadLine é um gerenciador de tarefas focado em produtividade, projetado para organizar atividades de forma simples e eficiente. Com uma interface limpa e intuitiva, ele ajuda usuários a gerenciar suas tarefas pessoais e profissionais em um único local, evitando a sobrecarga de informações e processos complexos.
 Possui o intuito de centralizar a criação e categorização de tarefas, permitindo ao usuário organizar suas atividades rapidamente, sem perder tempo com configurações. Através de uma API robusta, o sistema busca sincronizar e gerenciar tarefas de maneira eficiente, ajudando o usuário a manter o foco no que realmente importa.
@@ -35,7 +35,7 @@ Por fim, o ReadLine foi desenvolvido para aqueles que buscam uma solução simpl
 
 ![Persona](/assets/persona.png)
 
-### 2.2. User Stories (Semana 01)
+### 2.2. User Stories
 
 | **User Stories** | **Pensamento** | **Critérios de Aceitação** |
 |------------------|----------------|----------------------------|
@@ -76,9 +76,38 @@ A US01 é testável, pois possui critérios de aceitação claros que podem ser 
 
 ### 3.1. Modelagem do banco de dados  (Semana 3)
 
-*Posicione aqui os diagramas de modelos relacionais do seu banco de dados, apresentando todos os esquemas de tabelas e suas relações. Utilize texto para complementar suas explicações, se necessário.*
+![Modelo_Relacional](/assets/modelo-banco.png)
 
-*Posicione também o modelo físico com o Schema do BD (arquivo .sql)*
+O diagrama apresentado utiliza três tabelas principais para estruturar o sistema de gerenciamento de tarefas. A primeira tabela é a de usuários, responsável por armazenar as informações essenciais de cada usuário do sistema. A segunda tabela é a de categorias, que permite classificar as tarefas de acordo com características específicas, como prioridade, tipo ou tamanho. Por fim, a tabela de tarefas registra os dados das atividades que precisam ser realizadas, estabelecendo relações com os usuários e suas respectivas categorias para garantir uma organização eficiente.
+
+[Código do banco de dados:](/scripts/init.sql)
+
+```sql
+-- criando as tabelas --
+create table if not exists users (
+    id serial primary key,
+    name varchar(100) not null,
+    email varchar(100) not null,
+    password varchar(100) not null
+);
+
+create table if not exists categories (
+    id serial primary key,
+    name varchar(100) not null,
+    color varchar(100) not null
+);
+
+create table if not exists tasks (
+    id serial primary key,
+    title varchar(100) not null,
+    description text,
+    due_date date,
+    status varchar(20),
+    user_id int references users(id) ON delete cascade,
+    category_id int references categories(id) on delete set null
+);
+----
+```
 
 ### 3.1.1 BD e Models (Semana 5)
 *Descreva aqui os Models implementados no sistema web*
@@ -96,7 +125,20 @@ A US01 é testável, pois possui critérios de aceitação claros que podem ser 
 
 ### 3.3. Wireframes (Semana 03)
 
-*Posicione aqui as imagens do wireframe construído para sua solução e, opcionalmente, o link para acesso (mantenha o link sempre público para visualização).*
+<div align='center'>
+
+![Wireframe](/assets/wireframe_projeto_pessoal.png)
+<sub>Imagem 3: Wireframe</sub>
+https://www.figma.com/design/92tScM5Lb3b6aH66e5MWjL/Untitled?node-id=0-1&t=46jVFOusgx5bPIhd-1
+</div>
+
+O wireframe do ReadLine é composto por três telas principais que representam o fluxo básico de uso da aplicação:
+
+- Tela de Login: Interface inicial simples onde o usuário insere seus dados para acessar o sistema.
+
+- Tela de Gráfico: Apresenta uma visualização gráfica que mostra a relação entre tarefas concluídas e pendentes, ajudando o usuário a acompanhar seu progresso.
+
+- Tela de Tarefas: Dividida em três áreas, uma para adicionar novas tarefas, uma para visualizar tarefas em andamento e outra para listar as tarefas já concluídas.
 
 ### 3.4. Guia de estilos (Semana 05)
 
