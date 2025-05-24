@@ -223,7 +223,8 @@ Esta seção define os elementos visuais essenciais da identidade do projeto, in
 <div align='center'>
 
 ![protótipo_de_alta_fidelidade_3](/assets/protótipo_de_alta_fidelidade_3.png)
-<sub>Imagem 14: Protótipo de alta fidelidade 3</sub>
+<sub>Imagem 14: Protótipo de alta fidelidade 3
+https://www.figma.com/design/StSetSXqsmMNeieitH3jy8/prot%C3%B3tipo_de_alta_fidelidade?node-id=2-2&t=V6GG2iFQ3OUEY285-1 </sub>
 </div>
 
 ### 3.6. WebAPI e endpoints
