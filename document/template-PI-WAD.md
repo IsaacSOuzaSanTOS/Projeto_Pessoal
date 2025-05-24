@@ -22,16 +22,16 @@
 
 ## <a name="c1"></a>1. Introdução
 
-O ReadLine é um gerenciador de tarefas focado em produtividade, projetado para organizar atividades de forma simples e eficiente. Com uma interface limpa e intuitiva, ele ajuda usuários a gerenciar suas tarefas pessoais e profissionais em um único local, evitando a sobrecarga de informações e processos complexos.
+O RedLine é um gerenciador de tarefas focado em produtividade, projetado para organizar atividades de forma simples e eficiente. Com uma interface limpa e intuitiva, ele ajuda usuários a gerenciar suas tarefas pessoais e profissionais em um único local, evitando a sobrecarga de informações e processos complexos.
 Possui o intuito de centralizar a criação e categorização de tarefas, permitindo ao usuário organizar suas atividades rapidamente, sem perder tempo com configurações. Através de uma API robusta, o sistema busca sincronizar e gerenciar tarefas de maneira eficiente, ajudando o usuário a manter o foco no que realmente importa.
 Além de sua facilidade de uso, ela oferece uma experiência visual única, utilizando a cor vermelha para destacar o progresso das tarefas e criar um ambiente motivador. Ao concluir uma tarefa, o usuário sente uma sensação de realização, o que contribui para um aumento na produtividade.
-Por fim, o ReadLine foi desenvolvido para aqueles que buscam uma solução simples, centralizada e eficaz para organizar suas tarefas e alcançar seus objetivos de forma mais eficiente.
+Por fim, o RedLine foi desenvolvido para aqueles que buscam uma solução simples, centralizada e eficaz para organizar suas tarefas e alcançar seus objetivos de forma mais eficiente.
 
 ---
 
 ## <a name="c2"></a>2. Visão Geral da Aplicação Web
 
-### 2.1. Personas (Semana 01)
+### 2.1. Personas
 
 ![Persona](/assets/persona.png)
 
@@ -74,7 +74,7 @@ A US01 é testável, pois possui critérios de aceitação claros que podem ser 
 
 ## <a name="c3"></a>3. Projeto da Aplicação Web
 
-### 3.1. Modelagem do banco de dados  (Semana 3)
+### 3.1. Modelagem do banco de dados
 
 ![Modelo_Relacional](/assets/modelo-banco.png)
 
@@ -109,30 +109,50 @@ create table if not exists tasks (
 ----
 ```
 
-### 3.1.1 BD e Models (Semana 5)
-*Descreva aqui os Models implementados no sistema web*
+### 3.1.1 BD e Models
 
-### 3.2. Arquitetura (Semana 5)
+- **UserModel**  
+  Responsável pelo gerenciamento dos dados dos usuários do sistema. Contém métodos para criação de usuários, autenticação (login), busca e validação de credenciais.  
+  **Campos:** `id`, `email`, `senha`, `nome`
 
-*Posicione aqui o diagrama de arquitetura da sua solução de aplicação web. Atualize sempre que necessário.*
+- **TaskModel**  
+  Gerencia as tarefas criadas pelos usuários. Inclui funcionalidades para criação, leitura, atualização e exclusão (**CRUD**).  
+  **Campos:** `id`, `titulo`, `descricao`, `status`, `data_criacao`, `user_id`
 
-**Instruções para criação do diagrama de arquitetura**  
-- **Model**: A camada que lida com a lógica de negócios e interage com o banco de dados.
-- **View**: A camada responsável pela interface de usuário.
-- **Controller**: A camada que recebe as requisições, processa as ações e atualiza o modelo e a visualização.
-  
-*Adicione as setas e explicações sobre como os dados fluem entre o Model, Controller e View.*
+Todos os Models são conectados à base de dados **PostgreSQL** e seguem uma estrutura modular, facilitando a reutilização de código e a manutenção do sistema. Além disso, as relações entre tabelas (como `user_id` em `Task` e `Category`) foram configuradas para garantir **integridade referencial** no banco de dados.
 
-### 3.3. Wireframes (Semana 03)
+### 3.2. Arquitetura
+
+O diagrama apresentado representa claramente a arquitetura MVC (Model-View-Controller) aplicada no RedLine, organizado em três camadas
+
+<div align='center'>
+
+![Diagrama_MVC](/assets/Projeto_individual_diagrama.drawio.png)
+<sub>Imagem 3: Diagrama MVC</sub>
+</div>
+
+- **Views**: Responsáveis pela interface com o usuário. As telas de `login`, `register` e `tasks` recebem dados por meio de formulários, representando os pontos de interação com o sistema.
+
+- **Controllers**: Fazem a ponte entre as views e os models, lidando com a lógica de negócio e o fluxo de dados:
+  - `loginController`: responsável pela autenticação do usuário.
+  - `authController`: cuida do registro de novos usuários.
+  - `taskController`: centraliza a lógica de criação, leitura, atualização e remoção de tarefas (CRUD).
+
+- **Models**: Representam a estrutura dos dados e sua persistência no banco:
+  - `Users`: contém os dados de autenticação e identificação dos usuários (`users_id`, `name`, `email`, `password`).
+  - `Categories`: representa as categorias para organização das tarefas (`categories_id`, `name`, `color`).
+  - `Tasks`: estrutura principal de tarefas com atributos como `title`, `description`, `due_date`, além das chaves estrangeiras `users_id` e `category_id`.
+
+### 3.3. Wireframes
 
 <div align='center'>
 
 ![Wireframe](/assets/wireframe_projeto_pessoal.png)
-<sub>Imagem 3: Wireframe</sub>
+<sub>Imagem 4: Wireframe</sub>
 https://www.figma.com/design/92tScM5Lb3b6aH66e5MWjL/Untitled?node-id=0-1&t=46jVFOusgx5bPIhd-1
 </div>
 
-O wireframe do ReadLine é composto por três telas principais que representam o fluxo básico de uso da aplicação:
+O wireframe do RedLine é composto por três telas principais que representam o fluxo básico de uso da aplicação:
 
 - Tela de Login: Interface inicial simples onde o usuário insere seus dados para acessar o sistema.
 
@@ -140,18 +160,101 @@ O wireframe do ReadLine é composto por três telas principais que representam o
 
 - Tela de Tarefas: Dividida em três áreas, uma para adicionar novas tarefas, uma para visualizar tarefas em andamento e outra para listar as tarefas já concluídas.
 
-### 3.4. Guia de estilos (Semana 05)
+### 3.4. Guia de estilos 
 
-*Descreva aqui orientações gerais para o leitor sobre como utilizar os componentes do guia de estilos de sua solução.*
+Esta seção define os elementos visuais essenciais da identidade do projeto, incluindo paleta de cores, tipografia e uso da logo. Serve como referência para manter a consistência visual em todas as interfaces e comunicações do RedLine.
 
+<div align='center'>
+
+![guia_de_estilos_1](/assets/guia_de_estilos_1.png)
+<sub>Imagem 5: Guia de estilos 1</sub>
+</div>
+
+<div align='center'>
+
+![guia_de_estilos_2](/assets/guia_de_estilos_2.png)
+<sub>Imagem 6: Guia de estilos 2</sub>
+</div>
+
+<div align='center'>
+
+![guia_de_estilos_3](/assets/guia_de_estilos_3.png)
+<sub>Imagem 7: Guia de estilos 3</sub>
+</div>
+
+<div align='center'>
+
+![guia_de_estilos_4](/assets/guia_de_estilos_4.png)
+<sub>Imagem 8: Guia de estilos 4</sub>
+</div>
+
+<div align='center'>
+
+![guia_de_estilos_5](/assets/guia_de_estilos_5.png)
+<sub>Imagem 9: Guia de estilos 5</sub>
+</div>
+
+<div align='center'>
+
+![guia_de_estilos_6](/assets/guia_de_estilos_6.png)
+<sub>Imagem 10: Guia de estilos 6</sub>
+</div>
+
+<div align='center'>
+
+![guia_de_estilos_7](/assets/guia_de_estilos_7.png)
+<sub>Imagem 11: Guia de estilos 7</sub>
+</div>
 
 ### 3.5. Protótipo de alta fidelidade (Semana 05)
 
-*Posicione aqui algumas imagens demonstrativas de seu protótipo de alta fidelidade e o link para acesso ao protótipo completo (mantenha o link sempre público para visualização).*
+<div align='center'>
 
-### 3.6. WebAPI e endpoints (Semana 05)
+![protótipo_de_alta_fidelidade_1](/assets/protótipo_de_alta_fidelidade_1.png)
+<sub>Imagem 12: Protótipo de alta fidelidade 1</sub>
+</div>
 
-*Utilize um link para outra página de documentação contendo a descrição completa de cada endpoint. Ou descreva aqui cada endpoint criado para seu sistema.*  
+<div align='center'>
+
+![protótipo_de_alta_fidelidade_2](/assets/protótipo_de_alta_fidelidade_2.png)
+<sub>Imagem 13: Protótipo de alta fidelidade 2</sub>
+</div>
+
+<div align='center'>
+
+![protótipo_de_alta_fidelidade_3](/assets/protótipo_de_alta_fidelidade_3.png)
+<sub>Imagem 14: Protótipo de alta fidelidade 3</sub>
+</div>
+
+### 3.6. WebAPI e endpoints
+
+Este projeto segue o padrão RESTful para organizar os endpoints do sistema de gerenciamento de tarefas **RedLine**.
+
+---
+
+### 🧑‍💻 Autenticação e Usuário
+
+| Método | Endpoint     | Descrição                             |
+|--------|--------------|----------------------------------------|
+| `GET`  | `/`          | Exibe a tela de login                 |
+| `POST` | `/`          | Processa o login do usuário           |
+| `GET`  | `/register`  | Exibe o formulário de cadastro        |
+| `POST` | `/register`  | Cria um novo usuário                  |
+
+---
+
+### ✅ Tarefas
+
+| Método    | Endpoint         | Descrição                                  |
+|-----------|------------------|---------------------------------------------|
+| `POST`    | `/tarefas`       | Cria uma nova tarefa                        |
+| `GET`     | `/tarefas`       | Lista todas as tarefas                      |
+| `PUT`     | `/tarefas/:id`   | Atualiza uma tarefa específica              |
+| `DELETE`  | `/tarefas/:id`   | Deleta uma tarefa específica                |
+
+---
+
+  Todos os endpoints são controlados via os arquivos do controller e conectados ao banco de dados por meio dos Models definidos. A arquitetura do sistema segue o padrão MVC.
 
 ### 3.7 Interface e Navegação (Semana 07)
 

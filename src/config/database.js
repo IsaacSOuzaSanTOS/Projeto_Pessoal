@@ -1,14 +1,18 @@
-require('dotenv').config(); //carrega as variáveis do .env
+const { Pool } = require('pg');
+require('dotenv').config();
 
-const { Pool } = require('pg'); //rlavionado ao PostgreSQL
+const isSSL = process.env.DB_SSL === 'true';
 
-//criando a conexão com o banco de dados
 const pool = new Pool({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_DATABASE,
+  password: process.env.DB_PASSWORD,
+  port: process.env.DB_PORT,
+  ssl: isSSL ? { rejectUnauthorized: false } : false,
 });
 
-module.exports = pool;
+module.exports = {
+  query: (text, params) => pool.query(text, params),
+  connect: () => pool.connect(),
+};

@@ -1,17 +1,36 @@
+// server.js
 const express = require('express');
+const session = require('express-session');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const path = require('path')
+const routes = require('./src/routes/index');
+require('dotenv').config();
+
 const app = express();
-const PORT = 8080;
-const bodyParser = require('body-parser')
-require('dotenv').config()
+const port = 3000;
 
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: true}))
-app.use(express.static('public'))
+// Middlewares
+app.use(cors());
+app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Configuração do middleware de sessão
+app.use(session({
+  secret: 'uma_chave_secreta_aqui', // pode ser qualquer string
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: false } // use true se seu site estiver usando HTTPS
+}));
 
 
-const routes = require('./routes/index');
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'src', 'views'));
+app.use(express.static(path.join(__dirname, 'src', 'public')));
+
+// Usando as rotas definidas
 app.use('/', routes);
 
-app.listen(PORT, () => {
-    console.log(`O site pode ser acessado em https://localhost:${PORT}`)
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
 });

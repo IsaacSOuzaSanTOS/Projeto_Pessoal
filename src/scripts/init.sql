@@ -1,25 +1,27 @@
--- criando as tabelas --
-create table if not exists users (
-    id serial primary key,
-    name varchar(100) not null,
-    email varchar(100) not null,
-    password varchar(100) not null
+-- Tabela de usuários
+CREATE TABLE if not exists users (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL
 );
 
-create table if not exists categories (
-    id serial primary key,
-    name varchar(100) not null,
-    color varchar(100) not null
+-- Tabela de categorias
+CREATE TABLE if not exists categories (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  color VARCHAR(50)
 );
 
-create table if not exists tasks (
-    id serial primary key,
-    title varchar(100) not null,
-    description text,
-    due_date date,
-    status varchar(20),
-    user_id int references users(id) ON delete cascade,
-    category_id int references categories(id) on delete set null
+-- Tabela de tarefas
+CREATE TABLE if not exists tasks (
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  due_date DATE,
+  status VARCHAR(50),
+  user_id INT,
+  category_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 );
-----
-
