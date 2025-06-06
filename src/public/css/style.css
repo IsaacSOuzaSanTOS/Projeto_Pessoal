@@ -1,30 +1,423 @@
-body {
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e cores base */
+.login {
   font-family: Arial, sans-serif;
-  background-color: #f8f8f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: linear-gradient(to top left, #d62036 50%, white 50%);
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-form {
-  background: white;
+
+.register {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to top left, #d62036 50%, white 50%);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  background-color: white;
+  border: 2px solid #000;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 320px;
+  position: relative;
+  z-index: 1;
 }
-input, button {
-  display: block;
-  width: 100%;
-  padding: 10px;
+
+.login-container h1 {
+  color: #d62036;
+  font-size: 1.5rem;
   margin-bottom: 1rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  text-align: left;
 }
-button {
-  background-color: crimson;
+
+.login-container label {
+  font-weight: bold;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: 1px solid #000;
+  background-color: #ddd;
+}
+
+.login-container button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  background-color: #d62036;
+  color: white;
+  border: 1px solid #000;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-container .register-link {
+  text-align: right;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.login-container .register-link a {
+  color: #d62036;
+  text-decoration: none;
+}
+
+/* Logo e subtítulo */
+.header-login {
+  position: absolute;
+  top: 20px;
+  text-align: center;
+}
+
+.header-login img {
+  width: 180px;
+  height: auto;
+}
+
+.header-login p {
+  color: #d62036;
+  margin-top: 0.3rem;
+}
+
+.register-container {
+  background-color: white;
+  border: 2px solid #000;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 320px;
+  position: relative;
+  top: 40px;
+  z-index: 1;
+}
+
+.register-container h1 {
+  color: #d62036;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.register-container label {
+  font-weight: bold;
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.register-container input[type="text"],
+.register-container input[type="email"],
+.register-container input[type="password"] {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  border: 1px solid #000;
+  background-color: #ddd;
+}
+
+.register-container button {
+  margin-top: 1.5rem;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 20px;
+  background-color: #d62036;
+  color: white;
+  border: 1px solid #000;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.register-container .register-link {
+  text-align: right;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.register-container .login-link a {
+  color: #d62036;
+  text-decoration: none;
+}
+
+/* Logo e subtítulo */
+.header-register {
+  position: absolute;
+  top: 20px;
+  text-align: center;
+}
+
+.header-register img {
+  width: 180px;
+  height: auto;
+}
+
+.header-register p {
+  color: #d62036;
+  margin-top: 0.3rem;
+}
+
+/* Efeito hover para o botão de login */
+.login-container button:hover {
+  background-color: #aa1d2a; /* vermelho escuro */
+  transition: background-color 0.3s ease;
+}
+
+.register-container button:hover {
+  background-color: #aa1d2a; /* vermelho escuro */
+  transition: background-color 0.3s ease;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte e cores */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+}
+
+.tarefas-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  height: 40px;
+}
+
+.perfil-btn {
+  background-color: #fff;
+  border: 2px solid #e63946;
+  color: #e63946;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.perfil-btn:hover {
+  background-color: #e63946;
+  color: #fff;
+}
+
+.perfil-btn .icon {
+  margin-left: 8px;
+}
+
+/* Título principal */
+.titulo {
+  font-size: 2rem;
+  color: #e63946;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Container de colunas */
+.colunas {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Coluna */
+.coluna {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  flex: 1 1 30%;
+  min-width: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Cabeçalho da coluna */
+.coluna-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.coluna-header h2 {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.add-btn {
+  background-color: #e63946;
   color: white;
   border: none;
+  padding: 5px 12px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
 }
-button:hover {
-  background-color: darkred;
+
+.add-btn:hover {
+  background-color: #c5303a;
+}
+
+/* Cartões de tarefas */
+.card-tarefa {
+  background-color: #f1f1f1;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: transform 0.2s;
+}
+
+.card-tarefa:hover {
+  transform: translateY(-3px);
+}
+
+.card-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-topo h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.acoes {
+  display: flex;
+  gap: 10px;
+}
+
+.acoes a,
+.delete-btn {
+  text-decoration: none;
+  font-size: 1.1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.acoes a:hover,
+.delete-btn:hover {
+  color: #e63946;
+}
+
+.descricao p {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.descricao ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.descricao li {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.check-icon {
+  margin-right: 5px;
+  color: green;
+}
+
+/* Modal de criação de tarefa */
+.modal {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.modal input,
+.modal textarea,
+.modal select,
+.modal button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.modal button {
+  background-color: #e63946;
+  color: white;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.modal button:hover {
+  background-color: #c5303a;
+}
+
+/* Esconde modal por padrão */
+.hidden {
+  display: none;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+  .colunas {
+    flex-direction: column;
+  }
+
+  .coluna {
+    min-width: 100%;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.fechar-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }

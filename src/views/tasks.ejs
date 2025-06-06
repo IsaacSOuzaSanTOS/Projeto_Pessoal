@@ -3,28 +3,228 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Minhas Tarefas</title>
-  <link rel="stylesheet" href="/style/css/styles.css" />
+  <title>RedLine - Suas Tarefas</title>
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body>
-  <h1>Minhas Tarefas</h1>
+<body class="tarefas-page">
 
-  <form action="/tarefas" method="POST">
+  <!-- Cabeçalho -->
+  <header class="header">
+    <img src="/assets/logo.png" alt="Logo RedLine" class="logo">
+    <button class="perfil-btn">
+      Meu perfil
+      <span class="icon">&#128100;</span>
+    </button>
+  </header>
+
+  <!-- Título -->
+  <h1 class="titulo">Suas tarefas</h1>
+
+  <!-- Container de colunas -->
+  <div class="colunas">
+
+    <!-- Coluna: A Fazer -->
+    <div class="coluna">
+      <div class="coluna-header">
+        <h2>A fazer</h2>
+        <button class="add-btn">+</button>
+      </div>
+
+      <% tarefas.filter(t => t.status === 'pendente').forEach(tarefa => { %>
+        <div class="card-tarefa">
+          <div class="card-topo">
+            <h3><%= tarefa.title %></h3>
+            <div class="acoes">
+              <button class="editar-btn"
+                data-id="<%= tarefa.id %>"
+                data-title="<%= tarefa.title.replace(/'/g, '&#39;').replace(/"/g, '&quot;') %>"
+                data-description="<%= (tarefa.description || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;') %>"
+                data-status="<%= tarefa.status %>"
+              >✏️</button>
+
+              <form action="/tarefas/<%= tarefa.id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button class="delete-btn">🗑️</button>
+              </form>
+            </div>
+          </div>
+          <div class="descricao">
+            <p><%= tarefa.description %></p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <!-- Coluna: Em andamento -->
+    <div class="coluna">
+      <div class="coluna-header">
+        <h2>Em andamento</h2>
+        <button class="add-btn">+</button>
+      </div>
+
+      <% tarefas.filter(t => t.status === 'em_andamento').forEach(tarefa => { %>
+        <div class="card-tarefa">
+          <div class="card-topo">
+            <h3><%= tarefa.title %></h3>
+            <div class="acoes">
+              <button class="editar-btn"
+                data-id="<%= tarefa.id %>"
+                data-title="<%= tarefa.title.replace(/'/g, '&#39;').replace(/"/g, '&quot;') %>"
+                data-description="<%= (tarefa.description || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;') %>"
+                data-status="<%= tarefa.status %>"
+              >✏️</button>
+
+              <form action="/tarefas/<%= tarefa.id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button class="delete-btn">🗑️</button>
+              </form>
+            </div>
+          </div>
+          <div class="descricao">
+            <p><%= tarefa.description %></p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+    <!-- Coluna: Concluído -->
+    <div class="coluna">
+      <div class="coluna-header">
+        <h2>Concluído</h2>
+        <button class="add-btn">+</button>
+      </div>
+
+      <% tarefas.filter(t => t.status === 'concluída').forEach(tarefa => { %>
+        <div class="card-tarefa">
+          <div class="card-topo">
+            <h3><%= tarefa.title %></h3>
+            <div class="acoes">
+              <button class="editar-btn"
+                data-id="<%= tarefa.id %>"
+                data-title="<%= tarefa.title.replace(/'/g, '&#39;').replace(/"/g, '&quot;') %>"
+                data-description="<%= (tarefa.description || '').replace(/'/g, '&#39;').replace(/"/g, '&quot;') %>"
+                data-status="<%= tarefa.status %>"
+              >✏️</button>
+
+              <form action="/tarefas/<%= tarefa.id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button class="delete-btn">🗑️</button>
+              </form>
+            </div>
+          </div>
+          <div class="descricao">
+            <p><%= tarefa.description %></p>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+
+  </div>
+
+  <!-- Modal para criação de tarefa -->
+  <form action="/tarefas" method="POST" class="modal hidden" id="modal-criar">
+    <button type="button" onclick="document.getElementById('modal-criar').classList.add('hidden')" class="fechar-modal">✖</button>
     <input type="text" name="title" placeholder="Título da tarefa" required />
-    <input type="text" name="description" placeholder="Descrição" />
+    <textarea name="description" placeholder="Descrição"></textarea>
     <select name="status">
-      <option value="pendente">Pendente</option>
-      <option value="concluída">Concluída</option>
+      <option value="pendente">A fazer</option>
+      <option value="em_andamento">Em andamento</option>
+      <option value="concluída">Concluído</option>
     </select>
-    <button type="submit">Adicionar</button>
+    <button type="submit">Criar tarefa</button>
   </form>
 
-  <ul>
-    <% tarefas.forEach(tarefa => { %>
-      <li>
-        <strong><%= tarefa.title %></strong> - <%= tarefa.description %> - <%= tarefa.status %>
-      </li>
-    <% }) %>
-  </ul>
+  <!-- Modal para editar tarefa (apenas 1 modal, reutilizado) -->
+  <form id="modal-editar" class="modal hidden" method="POST">
+    <button type="button" class="fechar-modal">✖</button>
+    <input type="text" name="title" placeholder="Título da tarefa" required />
+    <textarea name="description" placeholder="Descrição"></textarea>
+    <select name="status">
+      <option value="pendente">A fazer</option>
+      <option value="em_andamento">Em andamento</option>
+      <option value="concluída">Concluído</option>
+    </select>
+    <button type="submit">Salvar</button>
+  </form>
+
+<script>
+  const modalCriar = document.getElementById('modal-criar');
+
+  // Abrir modal criação
+  const addButtons = document.querySelectorAll('.add-btn');
+  addButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modalCriar.classList.remove('hidden');
+    });
+  });
+
+  // Fechar modal criação
+  modalCriar.querySelector('.fechar-modal').addEventListener('click', () => {
+    modalCriar.classList.add('hidden');
+  });
+
+  // Abrir modal editar
+  const editarBtns = document.querySelectorAll('.editar-btn');
+  const modalEditar = document.getElementById('modal-editar');
+  const fecharModalEditar = modalEditar.querySelector('.fechar-modal');
+
+  editarBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.id;
+      const title = btn.dataset.title;
+      const description = btn.dataset.description;
+      const status = btn.dataset.status;
+
+      modalEditar.title.value = title;
+      modalEditar.description.value = description;
+      modalEditar.status.value = status;
+
+      // Atualiza action para PUT
+      modalEditar.action = `/tarefas/${id}?_method=PUT`;
+
+      modalEditar.classList.remove('hidden');
+    });
+  });
+
+  fecharModalEditar.addEventListener('click', () => {
+    modalEditar.classList.add('hidden');
+  });
+
+  // Fecha modais com ESC
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      modalCriar.classList.add('hidden');
+      modalEditar.classList.add('hidden');
+    }
+  });
+
+  // Intercepta o envio do form de criação para usar fetch
+  modalCriar.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(modalCriar);
+    const data = {
+      title: formData.get('title'),
+      description: formData.get('description'),
+      status: formData.get('status'),
+    };
+
+    try {
+      const response = await fetch('/tarefas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        modalCriar.reset();
+        modalCriar.classList.add('hidden');
+        window.location.reload();
+      } else {
+        const error = await response.text();
+        alert('Erro ao criar tarefa: ' + error);
+      }
+    } catch (error) {
+      alert('Erro na requisição: ' + error.message);
+    }
+  });
+</script>
 </body>
 </html>

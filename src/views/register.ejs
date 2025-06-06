@@ -3,17 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <title>Cadastro</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-  <h1>Cadastro de Usuário</h1>
+<body class="register">
+  <div class="header-register">
+      <img src="/assets/logo.png" alt="Logo do RedLine">
+      <p>Organize sua rotina com mais clareza</p>
+    </div>
 
-  <form action="/register" method="POST">
-    <input type="text" name="name" placeholder="Nome" required />
-    <input type="email" name="email" placeholder="Email" required />
-    <input type="password" name="password" placeholder="Senha" required />
-    <button type="submit">Cadastrar</button>
-  </form>
+    <div class="register-container">
+    <h1>Cadastre-se</h1>
+    <form action="/register" method="POST">
+      <label for="name">Nome de usuário:</label>
+      <input type="text" name="name" id="name" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+      
+      <label for="password">Senha:</label>
+      <input type="password" name="password" id="password" required>
+      
+      <div class="login-link">
+        <a href="/">Já tem conta? Faça login</a>
+      </div>
 
-  <p>Já tem conta? <a href="/">Faça login</a></p>
+      <button type="submit">Cadastrar-se</button>
+    </form>
+  </div>
+
 </body>
 </html>

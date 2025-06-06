@@ -5,6 +5,7 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const path = require('path')
 const routes = require('./src/routes/index');
+const methodOverride = require('method-override')
 require('dotenv').config();
 
 const app = express();
@@ -14,6 +15,7 @@ const port = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'))
 
 // Configuração do middleware de sessão
 app.use(session({
@@ -27,6 +29,7 @@ app.use(session({
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.use(express.static(path.join(__dirname, 'src', 'public')));
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 // Usando as rotas definidas
 app.use('/', routes);

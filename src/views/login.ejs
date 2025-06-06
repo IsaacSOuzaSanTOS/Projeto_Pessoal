@@ -3,24 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
-<body>
-  <h1>Login</h1>
+<body class="login">
+  <div class="header-login">
+    <img src="/assets/logo.png" alt="Logo"> <!-- Use o logo correto -->
+    <p>Organize sua rotina com mais clareza</p>
+  </div>
 
-  <form action="/" method="POST">
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
+  <div class="login-container">
+    <h1>Login</h1>
 
-    <br>
+    <form action="/" method="POST">
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
 
-    <label for="password">Senha:</label>
-    <input type="password" name="password" id="password" required>
+      <label for="password">Senha:</label>
+      <input type="password" name="password" id="password" required>
 
-    <br>
+      <div class="register-link">
+        <a href="/register">Cadastrar-se</a>
+      </div>
 
-    <button type="submit">Entrar</button>
-  </form>
-
-  <p>Não tem uma conta? <a href="/register">Cadastre-se</a></p>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
 </body>
 </html>

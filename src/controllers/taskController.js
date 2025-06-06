@@ -38,9 +38,14 @@ exports.criarTarefa = async (req, res) => {
 exports.editarTarefa = async (req, res) => {
   const { id } = req.params;
   const { title, description, status } = req.body;
+  console.log('Editar tarefa chamada, id:', req.params.id);
   try {
-    const tarefaAtualizada = await Tarefa.editar(id, { title, description, status });
+    const tarefaAtualizada = await Tarefa.editar(id, { title, description, status, user_id: req.session.user.id });
     if (!tarefaAtualizada) return res.status(404).json({ message: 'Tarefa não encontrada' });
+    if (req.headers.accept.includes('application/json')) {
+      return res.status(200).json({ tarefaAtualizada });
+    }
+
     res.redirect('/tarefas');
   } catch (err) {
     res.status(500).json({ error: err.message });

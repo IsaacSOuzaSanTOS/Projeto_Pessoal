@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/IsaacSOuzaSanTOS/Projeto_Pessoal/issues"
   },
-  "homepage": "https://github.com/IsaacSOuzaSanTOS/Projeto_Pessoal#readme"
+  "homepage": "https://github.com/IsaacSOuzaSanTOS/Projeto_Pessoal#readme",
+  "dependencies": {
+    "method-override": "^3.0.0"
+  }
 }
