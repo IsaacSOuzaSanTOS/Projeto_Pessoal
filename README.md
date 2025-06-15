@@ -29,7 +29,7 @@ Desenvolvido para aqueles que buscam uma solução centralizada, simples e efica
 
 ## 📝 Link de demonstração
 
-_Coloque aqui o link para seu projeto publicado e link para vídeo de demonstração_
+[clique aaqui para ver o vídeo de demonstração](https://drive.google.com/file/d/1U9xZ_fhzniXDiJhUvZdUtUG0LfjTFBr4/view?usp=sharing)
 
 ## 📁 Estrutura de pastas
 
@@ -96,15 +96,13 @@ node .\server.js
 
 ## 🗃 Histórico de lançamentos
 
-* 0.5.0 - XX/XX/2024
+* 0.4.0 - 15/06/2025
     * 
-* 0.4.0 - XX/XX/2024
+* 0.3.0 - 06/06/2025
     * 
-* 0.3.0 - XX/XX/2024
+* 0.2.0 - 23/05/2025
     * 
-* 0.2.0 - XX/XX/2024
-    * 
-* 0.1.0 - XX/XX/2024
+* 0.1.0 - 09/05/2025
     *
 
 ## 📋 Licença/License

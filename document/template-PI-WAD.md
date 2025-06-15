@@ -259,7 +259,31 @@ Este projeto segue o padrão RESTful para organizar os endpoints do sistema de g
 
 ### 3.7 Interface e Navegação (Semana 07)
 
-*Descreva e ilustre aqui o desenvolvimento do frontend do sistema web, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+A interface do RedLine foi desenvolvida com foco em simplicidade, clareza e fluidez, seguindo os princípios definidos no wireframe e no guia de estilos.
+
+A navegação principal é dividida em três colunas que representam o estado das tarefas: **A Fazer**, **Em Andamento** e **Concluído**. Cada tarefa pode ser criada, editada, movida entre colunas e excluída com facilidade, garantindo uma experiência fluida para o usuário.
+
+A aplicação utiliza as tecnologias **Node.js** com **Express**, renderização via **EJS** no frontend e estilização com **CSS personalizado**. O design responsivo permite uma boa experiência em desktop.
+
+Principais interações:
+- Um botão "+" fixado em cada coluna permite adicionar uma nova tarefa diretamente no respectivo estado.
+- Ícones de lápis (✏️) e lixeira (🗑️) possibilitam editar ou excluir tarefas de forma rápida.
+- O cabeçalho da página exibe o nome da aplicação e um botão de logout.
+- O progresso pode ser visualizado visualmente com o preenchimento da coluna "Concluído", incentivando o usuário a manter sua produtividade.
+
+Abaixo, seguem capturas de tela ilustrando as principais interfaces do sistema:
+
+#### 🖼️ Tela de Login
+
+`![Tela de Login](/assets/telaDeLogin.png)`
+
+#### 🖼️ Tela de Registro
+
+`![Tela de Registro](/assets/telaDeRegistro.png)`
+
+#### 🖼️ Tela Principal - Painel de Tarefas
+
+`![Tela Principal - Tarefas](/assets/telaDeGarenciarTarefas.png)`
 
 ---
 
@@ -267,14 +291,46 @@ Este projeto segue o padrão RESTful para organizar os endpoints do sistema de g
 
 ### 4.1 Demonstração do Sistema Web (Semana 8)
 
-*VIDEO: Insira o link do vídeo demonstrativo nesta seção*
-*Descreva e ilustre aqui o desenvolvimento do sistema web completo, explicando brevemente o que foi entregue em termos de código e sistema. Utilize prints de tela para ilustrar.*
+A seguir, apresentamos a demonstração funcional do sistema **RedLine**, evidenciando o fluxo principal de uso e as principais funcionalidades implementadas. A aplicação foi desenvolvida com base na arquitetura MVC e utiliza um banco de dados PostgreSQL para persistência de dados.
+
+O vídeo apresenta as seguintes funcionalidades:
+
+- Tela de login e autenticação de usuários.
+- Tela de cadastro de novos usuários.
+- Criação, visualização, edição e exclusão de tarefas.
+- Organização das tarefas em colunas: “A Fazer”, “Em Andamento” e “Concluídas”.
+- Navegação fluida entre as seções.
+
+#### 🎥 Link do vídeo demonstrativo:
+https://drive.google.com/file/d/1U9xZ_fhzniXDiJhUvZdUtUG0LfjTFBr4/view?usp=sharing
+
 
 ### 4.2 Conclusões e Trabalhos Futuros (Semana 8)
 
-*Indique pontos fortes e pontos a melhorar de maneira geral.*
-*Relacione também quaisquer outras ideias que você tenha para melhorias futuras.*
+O desenvolvimento do sistema **RedLine** permitiu aplicar de forma prática os conhecimentos adquiridos ao longo do módulo, especialmente na utilização da arquitetura MVC, integração com banco de dados PostgreSQL e desenvolvimento de uma interface web funcional.
 
+#### Pontos fortes:
+- Estrutura de código organizada e modularizada, facilitando a manutenção.
+- Interface intuitiva, com foco na usabilidade e produtividade do usuário.
+- Implementação completa das operações CRUD para tarefas.
+- Separação clara entre responsabilidades: Models, Views e Controllers.
+- Design consistente com base no guia de estilos desenvolvido.
+- Autenticação com hash de senha (por exemplo, usando `bcrypt`), aumentando a segurança.
+
+#### Pontos de melhoria:
+- Adicionar feedback visual (como toasts ou alertas) para ações como criar ou excluir tarefas.
+- Melhorar a responsividade para diferentes tamanhos de tela e dispositivos móveis.
+- Incluir filtros ou busca por categorias e status de tarefas.
+- Implementar testes automatizados para garantir a qualidade do código.
+
+#### Ideias futuras:
+- Integração com APIs externas de produtividade (como Google Calendar ou Notion).
+- Sistema de notificações para lembrar o usuário de tarefas com prazo próximo.
+- Dashboard com gráficos de desempenho e produtividade.
+- Modo escuro para a interface.
+- Personalização de categorias com ícones e cores customizadas.
+
+O projeto RedLine já entrega valor real para quem deseja organizar suas tarefas, mas também apresenta um excelente potencial para expansão com novas funcionalidades e melhorias incrementais.
 
 
 ## <a name="c5"></a>5. Referências
